@@ -1,0 +1,46 @@
+body {
+    background-image: url('space3.jpeg');
+}
+
+.container {
+    height: 500px;
+    width: 800px;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(255,255,255,.1)
+}
+
+.astroid {
+    height: 30px;
+    width: 30px;
+    position: absolute;
+}
+
+.left-astroid {
+    animation: move 4s infinite;
+    animation-direction: forwards;
+}
+
+.right-astroid {
+    animation: move 4s infinite;
+    animation-direction: reverse;
+}
+
+#spaceship {
+    height: 200px;
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+@keyframes move {
+    100% {
+        transform: translate(770px,0);
+    }
+}
