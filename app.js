@@ -19,7 +19,6 @@ $(document).ready(function(){
             astroid.attr('class', 'right-astroid astroid')
         }
         // window.innerHeight
-
         container.append(astroid)
         $(astroid).css('top', top)
     }
@@ -45,11 +44,5 @@ $(document).ready(function(){
             spaceship.css('right', configY)
         }
     });
-
-
-
-
-
-
 
 })

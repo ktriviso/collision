@@ -11,7 +11,8 @@ body {
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: rgba(255,255,255,.1)
+    background-color: rgba(255,255,255,.1);
+    overflow: hidden;
 }
 
 .astroid {
@@ -41,6 +42,6 @@ body {
 
 @keyframes move {
     100% {
-        transform: translate(770px,0);
+        transform: translate(900px,0);
     }
 }
