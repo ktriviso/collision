@@ -1,5 +1,26 @@
 body {
     background-image: url('space3.jpeg');
+    font-size: 100%;
+    font-family: 'Chicle', cursive;
+    letter-spacing: 5px;
+    color: white;
+    text-transform: uppercase;
+}
+
+h1 {
+    font-size: 5rem;
+    padding-left: 2rem;
+    margin-top: 2rem;
+}
+
+h2 {
+    position: absolute;
+    bottom: 0;
+    padding: 1rem;
+}
+
+h2:first-of-type {
+    right: 0;
 }
 
 .container {
