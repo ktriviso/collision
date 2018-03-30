@@ -37,10 +37,10 @@ $(document).ready(function(){
         } else if (e.which === 40) {
             configX -= 15
             spaceship.css('bottom', configX)
-        } else if (e.which === 39) {
+        } else if (e.which === 37) {
             configY += 30
             spaceship.css('right', configY)
-        } else if (e.which === 37) {
+        } else if (e.which === 39) {
             configY -= 30
             spaceship.css('right', configY)
         }
