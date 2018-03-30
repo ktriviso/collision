@@ -1,4 +1,4 @@
-body {
+body, button {
     background-image: url('space3.jpeg');
     font-size: 100%;
     font-family: 'Chicle', cursive;
@@ -15,7 +15,7 @@ html, body {
 h1 {
     font-size: 5rem;
     padding-left: 2rem;
-    margin-top: 2rem;
+    margin-top: 1rem;
 }
 
 h2 {
@@ -28,8 +28,23 @@ h2:first-of-type {
     right: 0;
 }
 
+button {
+    border: none;
+    background-color: transparent;
+    letter-spacing: 3px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 2rem;
+    z-index: 1000;
+}
+
+button:focus {
+    outline:0;
+}
+
 .container {
-    height: 500px;
+    height: 550px;
     width: 800px;
     position: absolute;
     margin: auto;

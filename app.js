@@ -1,6 +1,12 @@
 $(document).ready(function(){
     const container = $('.container')
     const spaceship = $('img')
+    const startButton = $('button')
+    const body = $('body')
+
+    startButton.on('click', function(){
+        $(spaceship).attr({'src': 'ufo_1.svg', 'id': 'spaceship'})
+    });
 
     // how many asteroids you want
     for(let i = 0; i < 8; i++){
