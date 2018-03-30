@@ -2,25 +2,25 @@ $(document).ready(function(){
     const container = $('.container')
     const spaceship = $('img')
 
-    // how many astroids you want
+    // how many asteroids you want
     for(let i = 0; i < 6; i++){
-        makeAstroid();
+        makeasteroid();
     }
 
-    function makeAstroid(){
+    function makeasteroid(){
         let id = Math.floor(Math.random()*999999) + 100000
-        let astroid = $('<img></img>').attr({'id': id, 'src': 'as1.svg'})
-        // get random coordinates every time you make an astroid
+        let asteroid = $('<img></img>').attr({'id': id, 'src': 'as1.svg'})
+        // get random coordinates every time you make an asteroid
         let top = Math.random() * 480
         // if the id is even, start from left, if odd start from right
-        if(astroid.attr('id') % 2 === 0){
-            astroid.attr('class', 'left-astroid astroid')
+        if(asteroid.attr('id') % 2 === 0){
+            asteroid.attr('class', 'left-asteroid asteroid')
         }else{
-            astroid.attr('class', 'right-astroid astroid')
+            asteroid.attr('class', 'right-asteroid asteroid')
         }
         // window.innerHeight
-        container.append(astroid)
-        $(astroid).css('top', top)
+        container.append(asteroid)
+        $(asteroid).css('top', top)
     }
 
     // grab arrow key events

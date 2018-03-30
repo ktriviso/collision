@@ -15,19 +15,20 @@ body {
     overflow: hidden;
 }
 
-.astroid {
+.asteroid {
     height: 30px;
     width: 30px;
     position: absolute;
+    left: -100px;
 }
 
-.left-astroid {
-    animation: move 4s infinite;
+.left-asteroid {
+    animation: move 4s infinite linear;
     animation-direction: forwards;
 }
 
-.right-astroid {
-    animation: move 4s infinite;
+.right-asteroid {
+    animation: move 4s infinite linear;
     animation-direction: reverse;
 }
 
