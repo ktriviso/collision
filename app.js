@@ -3,7 +3,7 @@ $(document).ready(function(){
     const spaceship = $('img')
 
     // how many asteroids you want
-    for(let i = 0; i < 6; i++){
+    for(let i = 0; i < 8; i++){
         makeasteroid();
     }
 
@@ -15,7 +15,11 @@ $(document).ready(function(){
         // if the id is even, start from left, if odd start from right
         if(asteroid.attr('id') % 2 === 0){
             asteroid.attr('class', 'left-asteroid asteroid')
-        }else{
+        } else if (asteroid.attr('id') % 3 === 0){
+            asteroid.attr('class', 'slow-asteroid asteroid')
+        } else if (asteroid.attr('id') % 5 === 0){
+            asteroid.attr('class', 'fast-asteroid asteroid')
+        } else{
             asteroid.attr('class', 'right-asteroid asteroid')
         }
         // window.innerHeight

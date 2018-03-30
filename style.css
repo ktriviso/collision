@@ -5,6 +5,11 @@ body {
     letter-spacing: 5px;
     color: white;
     text-transform: uppercase;
+    overflow: none;
+}
+
+html, body {
+     overflow: hidden;
 }
 
 h1 {
@@ -53,8 +58,20 @@ h2:first-of-type {
     animation-direction: reverse;
 }
 
+.slow-asteroid {
+    animation: move 4s infinite linear;
+    animation-direction: reverse;
+    animation-delay: 2s;
+}
+
+.fast-asteroid {
+    animation: move 4s infinite linear;
+    animation-direction: forwards;
+    animation-delay: 2s;
+}
+
 #spaceship {
-    height: 200px;
+    height: 100px;
     position: absolute;
     bottom: 5px;
     left: 0;
