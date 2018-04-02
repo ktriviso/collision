@@ -53,36 +53,13 @@ button:focus {
     left: 0;
     right: 0;
     background-color: rgba(255,255,255,.1);
-    overflow: hidden;
 }
 
 .asteroid {
     height: 30px;
     width: 30px;
     position: absolute;
-    left: -100px;
-}
-
-.left-asteroid {
-    animation: move 4s infinite linear;
-    animation-direction: forwards;
-}
-
-.right-asteroid {
-    animation: move 4s infinite linear;
-    animation-direction: reverse;
-}
-
-.slow-asteroid {
-    animation: move 4s infinite linear;
-    animation-direction: reverse;
-    animation-delay: 2s;
-}
-
-.fast-asteroid {
-    animation: move 4s infinite linear;
-    animation-direction: forwards;
-    animation-delay: 2s;
+    /* left: -100px; */
 }
 
 #spaceship {
@@ -92,10 +69,4 @@ button:focus {
     left: 0;
     right: 0;
     margin: auto;
-}
-
-@keyframes move {
-    100% {
-        transform: translate(900px,0);
-    }
 }
