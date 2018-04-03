@@ -6,11 +6,14 @@ $(document).ready(function() {
   const spaceshipLocation = spaceship[0].getBoundingClientRect()
   const planet = $('#planet')
   const planetLocation = planet[0].getBoundingClientRect()
-  console.log(planetLocation)
   const startButton = $('button')
   const body = $('body')
   const asteroidCollection = document.getElementsByClassName('asteroid')
   let life = 10
+  let level = 8
+
+  console.log(containerLocation)
+  console.log(spaceshipLocation)
 
   $(planet).attr({
       'src': 'planet-remix.svg'
@@ -21,7 +24,7 @@ $(document).ready(function() {
   })
 
   // how many asteroids are made
-  for (let i = 0; i < 6; i++) {
+  for (let i = 0; i < level; i++) {
     makeAsteroid()
   }
 
@@ -31,6 +34,16 @@ $(document).ready(function() {
         animationLeft(asteroidCollection[j])
         collision(spaceship[0].getBoundingClientRect(), asteroidCollection[j].getBoundingClientRect())
         winner(spaceship[0].getBoundingClientRect(), planetLocation)
+
+        // mkaing sure the ship stays inside the box
+        if(spaceship[0].getBoundingClientRect().left > containerLocation.left && spaceship[0].getBoundingClientRect().top > containerLocation.top && spaceship[0].getBoundingClientRect().right < containerLocation.right){
+            // user is in the container
+
+        } else {
+            // user is outside of the container
+            document.location.href = 'end.html';
+
+        }
     }
   }
   setInterval(initiateGame, 1000)
@@ -38,10 +51,11 @@ $(document).ready(function() {
   // collision detection
   function collision(ship, ast) {
     if (ship.x < ast.x + ast.width && ship.x + ship.width > ast.x && ship.y < ast.y + ast.height && ship.height + ship.y > ast.y) {
-      console.log('collision')
+      // collision is happening
       life--
       if(life === 0){
-          alert('you died')
+          // user died, life left is 0
+          document.location.href = 'end.html';
       }
     }
   }
@@ -49,7 +63,7 @@ $(document).ready(function() {
   // winning logic
   function winner(ship, planet) {
       if(ship.x < planet.x + planet.width && ship.x + ship.width > planet.x && ship.y < planet.y + planet.height && ship.height + ship.y > planet.y){
-          alert('youre safe')
+          console.log('youre safe')
       }
   }
 
