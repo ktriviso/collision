@@ -51,8 +51,11 @@ $(document).ready(function() {
   // collision detection
   function collision(ship, ast) {
     if (ship.x < ast.x + ast.width && ship.x + ship.width > ast.x && ship.y < ast.y + ast.height && ship.height + ship.y > ast.y) {
-      // collision is happening
+      console.log('collision')
       life--
+      // flashes css change on collision
+      $(spaceship).css('height', '150px')
+      setTimeout(function(){ $(spaceship).css('height', '100px') },400)
       if(life === 0){
           // user died, life left is 0
           document.location.href = 'end.html';
