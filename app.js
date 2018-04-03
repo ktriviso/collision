@@ -44,13 +44,15 @@ $(document).ready(function() {
   // animation
   function animationRight(elem){
       let top = Math.random() * containerLocation.height
-      let speed = Math.floor(Math.random() * 4000) + 1500
-      $(elem).animate({right: '1px', top: top}, speed);
+      let width = Math.random() * containerLocation.width
+      let speed = Math.floor(Math.random() * 4000) + 1000
+      $(elem).animate({right: width, top: top}, speed);
   }
   function animationLeft(elem){
       let top = Math.random() * containerLocation.height
-      let speed = Math.floor(Math.random() * 4000) + 1500
-      $(elem).animate({left: '1px', top: top}, speed);
+      let width = Math.random() * containerLocation.width
+      let speed = Math.floor(Math.random() * 4000) + 1000
+      $(elem).animate({left: width, top: top}, speed);
   }
 
   // moving the spaceship with arrow keys
