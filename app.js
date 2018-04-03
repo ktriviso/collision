@@ -47,7 +47,7 @@ $(document).ready(function() {
     }
     $('#score').text(life).css({'font-size': '3rem'})
   }
-  // let interval = setInterval(initiateGame, 1000)
+  let interval = setInterval(initiateGame, 1000)
 
   // collision detection
   function collision(ship, ast) {
