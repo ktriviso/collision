@@ -26,14 +26,17 @@ h1, h3 {
 }
 
 h2 {
-    position: absolute;
-    bottom: 0;
-    padding: 1rem;
+    text-align: center;
+    font-size: 3rem;
+    animation: blink 3s linear infinite;
+    margin-bottom: 0;
 }
 
-h2:first-of-type {
-    right: 0;
-}
+/* @keyframes blink{
+    0%{opacity: .5; font-size: 3rem}
+    50%{opacity: 1; font-size: 3.5rem}
+    100%{opacity: .5; font-size: 3rem}
+} */
 
 a {
     color: white;
@@ -43,6 +46,56 @@ a {
 
 a:hover {
     color: #009999;
+}
+
+.footer:first-of-type {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 3rem;
+}
+
+.footer:last-of-type {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 3rem;
+}
+
+#level {
+    padding-left: 2px;
+}
+
+#modal {
+    z-index: 3000;
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    background-color: rgba(255,255,255,.3);
+    text-align: center;
+    visibility: hidden;
+}
+
+#modal h4{
+    background-color: white;
+    margin: 25%;
+    color: black;
+    font-size: 5rem;
+    line-height: 10rem;
+}
+
+#modal span {
+    margin-top: -3rem;
+    margin-left: 10rem;
+    position: absolute;
+    font-size: 2rem;
+    background-color: white;
+    border-radius: 50%;
+    line-height: 2.5rem;
+    height: 40px;
+    width: 40px;
+    padding-left: 3px;
 }
 
 button {
@@ -98,7 +151,3 @@ button:focus {
     top: 8rem;
     z-index: 2000;
 }
-
-/* --------------------------------------
-end page
---------------------------------------- */

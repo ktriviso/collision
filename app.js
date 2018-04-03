@@ -12,8 +12,8 @@ $(document).ready(function() {
   let life = 10
   let level = 8
 
-  console.log(containerLocation)
-  console.log(spaceshipLocation)
+  $('#level').text(level).css({'font-size': '3rem'})
+  $('#score').text(life).css({'font-size': '3rem'})
 
   $(planet).attr({
       'src': 'planet-remix.svg'
@@ -45,14 +45,15 @@ $(document).ready(function() {
 
         }
     }
+    $('#score').text(life).css({'font-size': '3rem'})
   }
-  setInterval(initiateGame, 1000)
+  let interval = setInterval(initiateGame, 1000)
 
   // collision detection
   function collision(ship, ast) {
     if (ship.x < ast.x + ast.width && ship.x + ship.width > ast.x && ship.y < ast.y + ast.height && ship.height + ship.y > ast.y) {
       console.log('collision')
-      life--
+      life -= 1
       // flashes css change on collision
       $(spaceship).css('height', '150px')
       setTimeout(function(){ $(spaceship).css('height', '100px') },400)
@@ -67,6 +68,13 @@ $(document).ready(function() {
   function winner(ship, planet) {
       if(ship.x < planet.x + planet.width && ship.x + ship.width > planet.x && ship.y < planet.y + planet.height && ship.height + ship.y > planet.y){
           console.log('youre safe')
+          // append winning modal
+          $('#modal').css('visibility', 'visible')
+          $('#modal span').on('click', function(){
+              $('#modal').css('visibility', 'hidden')
+              location.reload()
+          })
+          clearInterval(interval)
       }
   }
 
