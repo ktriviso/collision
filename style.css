@@ -69,4 +69,15 @@ button:focus {
     left: 0;
     right: 0;
     margin: auto;
+    z-index: 1000;
+}
+
+#planet {
+    height: 150px;
+    margin: auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 8rem;
+    z-index: 2000;
 }

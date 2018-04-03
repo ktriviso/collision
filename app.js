@@ -2,14 +2,22 @@ $(document).ready(function() {
 
   const container = $('.container')
   const containerLocation = container[0].getBoundingClientRect()
-  const spaceship = $('img')
+  const spaceship = $('#spaceship')
+  const spaceshipLocation = spaceship[0].getBoundingClientRect()
+  const planet = $('#planet')
+  const planetLocation = planet[0].getBoundingClientRect()
+  console.log(planetLocation)
   const startButton = $('button')
   const body = $('body')
   const asteroidCollection = document.getElementsByClassName('asteroid')
+  let life = 10
+
+  $(planet).attr({
+      'src': 'planet-remix.svg'
+  })
 
   $(spaceship).attr({
-    'src': 'ufo_1.svg',
-    'id': 'spaceship'
+    'src': 'ufo_1.svg'
   })
 
   // how many asteroids are made
@@ -17,20 +25,32 @@ $(document).ready(function() {
     makeAsteroid()
   }
 
-  function choose() {
+  function initiateGame() {
     for (let j = 0; j < asteroidCollection.length; j++) {
         animationRight(asteroidCollection[j])
         animationLeft(asteroidCollection[j])
         collision(spaceship[0].getBoundingClientRect(), asteroidCollection[j].getBoundingClientRect())
+        winner(spaceship[0].getBoundingClientRect(), planetLocation)
     }
   }
-  setInterval(choose, 1000)
+  setInterval(initiateGame, 1000)
 
   // collision detection
-  function collision(rect1, rect2) {
-    if (rect1.x < rect2.x + rect2.width && rect1.x + rect1.width > rect2.x && rect1.y < rect2.y + rect2.height && rect1.height + rect1.y > rect2.y) {
+  function collision(ship, ast) {
+    if (ship.x < ast.x + ast.width && ship.x + ship.width > ast.x && ship.y < ast.y + ast.height && ship.height + ship.y > ast.y) {
       console.log('collision')
+      life--
+      if(life === 0){
+          alert('you died')
+      }
     }
+  }
+
+  // winning logic
+  function winner(ship, planet) {
+      if(ship.x < planet.x + planet.width && ship.x + ship.width > planet.x && ship.y < planet.y + planet.height && ship.height + ship.y > planet.y){
+          alert('youre safe')
+      }
   }
 
   function makeAsteroid() {
@@ -45,13 +65,13 @@ $(document).ready(function() {
   function animationRight(elem){
       let top = Math.random() * containerLocation.height
       let width = Math.random() * containerLocation.width
-      let speed = Math.floor(Math.random() * 4000) + 1000
+      let speed = Math.floor(Math.random() * 3000) + 1000
       $(elem).animate({right: width, top: top}, speed);
   }
   function animationLeft(elem){
       let top = Math.random() * containerLocation.height
       let width = Math.random() * containerLocation.width
-      let speed = Math.floor(Math.random() * 4000) + 1000
+      let speed = Math.floor(Math.random() * 3000) + 1000
       $(elem).animate({left: width, top: top}, speed);
   }
 
