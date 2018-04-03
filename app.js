@@ -19,11 +19,14 @@ $(document).ready(function() {
 
   function choose() {
     for (let j = 0; j < asteroidCollection.length; j++) {
-      setInterval(collision(spaceship[0].getBoundingClientRect(), asteroidCollection[j].getBoundingClientRect()), 1000)
+        animationRight(asteroidCollection[j])
+        animationLeft(asteroidCollection[j])
+        collision(spaceship[0].getBoundingClientRect(), asteroidCollection[j].getBoundingClientRect())
     }
   }
-  // setInterval(choose, 1000)
+  setInterval(choose, 1000)
 
+  // collision detection
   function collision(rect1, rect2) {
     if (rect1.x < rect2.x + rect2.width && rect1.x + rect1.width > rect2.x && rect1.y < rect2.y + rect2.height && rect1.height + rect1.y > rect2.y) {
       console.log('collision')
@@ -35,16 +38,22 @@ $(document).ready(function() {
       'class': 'asteroid',
       'src': 'as1.svg'
     })
-    let top = Math.random() * containerLocation.height
-    let left = Math.random() * containerLocation.width
     container.append(asteroid)
-    $(asteroid).css({
-      'top': top,
-      'left': left
-    })
   }
 
-  // grab arrow key events
+  // animation
+  function animationRight(elem){
+      let top = Math.random() * containerLocation.height
+      let speed = Math.floor(Math.random() * 4000) + 1500
+      $(elem).animate({right: '1px', top: top}, speed);
+  }
+  function animationLeft(elem){
+      let top = Math.random() * containerLocation.height
+      let speed = Math.floor(Math.random() * 4000) + 1500
+      $(elem).animate({left: '1px', top: top}, speed);
+  }
+
+  // moving the spaceship with arrow keys
   $(document).keyup(function(e) {
     let currentX = spaceship.css('bottom')
     let currentY = spaceship.css('right')
