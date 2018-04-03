@@ -30,8 +30,8 @@ $(document).ready(function() {
 
   function initiateGame() {
     for (let j = 0; j < asteroidCollection.length; j++) {
-        animationRight(asteroidCollection[j])
-        animationLeft(asteroidCollection[j])
+        // animationRight(asteroidCollection[j])
+        animation(asteroidCollection[j])
         collision(spaceship[0].getBoundingClientRect(), asteroidCollection[j].getBoundingClientRect())
         winner(spaceship[0].getBoundingClientRect(), planetLocation)
 
@@ -87,13 +87,13 @@ $(document).ready(function() {
   }
 
   // animation
-  function animationRight(elem){
-      let top = Math.random() * containerLocation.height
-      let width = Math.random() * containerLocation.width
-      let speed = Math.floor(Math.random() * 3000) + 1000
-      $(elem).animate({right: width, top: top}, speed);
-  }
-  function animationLeft(elem){
+  // function animationRight(elem){
+  //     let top = Math.random() * containerLocation.height
+  //     let width = Math.random() * containerLocation.width
+  //     let speed = Math.floor(Math.random() * 3000) + 1000
+  //     $(elem).animate({right: width, top: top}, speed);
+  // }
+  function animation(elem){
       let top = Math.random() * containerLocation.height
       let width = Math.random() * containerLocation.width
       let speed = Math.floor(Math.random() * 3000) + 1000
